@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="showContentContacts()">
+
+    <div id="shown"></div>
+
+    </div>
+    
+    <template><div class="page" id="login" >
+        <form id="form1" >
+            <label id="title"> login: </label> </br></br>
+            <label for="pName"> name :</label> </br>
+            <input type="text" id="pName" name="pName" maxlength="20" minlength="2" required ></br></br>
+            <label for="password">password:</label></br>
+            <input type="password" id="password" name="password" required /></br></br>
+            <p id="notExist"> user not found</p>
+            <input id="submit" type="submit" value="אישור" onclick="showContentContacts()" /> </br></br>
+            <label >dosent have an account? press <a onclick="showContentreg()"> <span id="span">here  </span> </a></label>
+        </form>
+
+    </div></template>
+
+    <template><div class="page" id="registration" >
+        <form id="form1">
+            <label id="title"> sign up </label> </br></br>
+            <label for="pName">name</label> </br>
+            <input type="text" id="pName" name="pName" maxlength="20" minlength="2" required ></br></br>
+            <label for="password">password</label></br>
+            <input type="password" id="password" name="password" required /></br></br>
+            <p id="notExist"> user not found</p>
+            <input type="submit" value="submit" onclick="runSubmit(event)" /> </br></br>
+            <label> have an account? press<a onclick="showContentlog()"> here<span id="span">  </span> </a></label>
+        </form>
+    </div></template>
+
+    <template><div class="page" id="contacts" >
+         <table>
+            <tr>
+                <th>Name </th>
+                <th>Phone number</th>
+            </tr>
+            <tr>
+                <td>
+                    Naama
+                </td>
+                <td>
+                    0506479121
+                </td>
+            </tr>
+         </table>
+         <button>add new contect</button>
+    </div></template>
+
+
+<script src="./script/index.js"></script>
+</body>
+</html>
