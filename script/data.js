@@ -27,11 +27,11 @@ function logInValidation(name, password) {
     if (userData["password"] === password) {
       alert("sign in succefully!");
       localStorage.setItem("Current user", name);
-      showContentContacts();
-      displayContacts();
+      // showContentContacts();
+      // displayContacts();
+    } else {
+      alert("name or password invalid");
     }
-  } else {
-    alert("name or password invalid");
   }
 }
 function valInarray(val, arr) {
@@ -59,22 +59,22 @@ function AddToContacts(nameToAdd, phoneNumber) {
     displayContacts();
   }
 }
-function displayContacts() {
-  let tbl = document.getElementById("main-table");
-  let currentUser = localStorage.getItem("Current user");
-  let getFromLocal = JSON.parse(localStorage.getItem(currentUser));
-  let userContacts = getFromLocal.content;
-  let keys = Object.keys(getFromLocal.content);
+// function displayContacts() {
+//   let tbl = document.getElementById("main-table");
+//   let currentUser = localStorage.getItem("Current user");
+//   let getFromLocal = JSON.parse(localStorage.getItem(currentUser));
+//   let userContacts = getFromLocal.content;
+//   let keys = Object.keys(getFromLocal.content);
 
-  for (let i = 0; i < keys.length; i++) {
-    const newRow = document.createElement("tr");
-    const nameKey = document.createElement("td");
-    nameKey.textContent = keys[i]; //
-    newRow.appendChild(nameKey);
+//   for (let i = 0; i < keys.length; i++) {
+//     const newRow = document.createElement("tr");
+//     const nameKey = document.createElement("td");
+//     nameKey.textContent = keys[i]; //
+//     newRow.appendChild(nameKey);
 
-    const phoneVal = document.createElement("td");
-    phoneVal.textContent = userContacts[keys[i]]; //
-    newRow.appendChild(phoneVal);
-    tbl.appendChild(newRow);
-  }
-}
+//     const phoneVal = document.createElement("td");
+//     phoneVal.textContent = userContacts[keys[i]]; //
+//     newRow.appendChild(phoneVal);
+//     tbl.appendChild(newRow);
+//   }
+// }

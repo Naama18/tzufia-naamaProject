@@ -18,8 +18,10 @@
             <input type="text" id="pName" name="pName" maxlength="20" minlength="2" required ></br></br>
             <label for="password">password:</label></br>
             <input type="password" id="password" name="password" required /></br></br>
-            <input id="submit" type="button" onclick ="logInValidation(pName.value,password.value)" value="submit" /> </br></br>
-            <label >dosent have an account? press <a onclick="showContentreg()"> <span id="span">here  </span> </a></label>
+            <!-- <input id="submit log-in-validation" type="button" onclick ="logInValidation(pName.value,password.value)" value="submit" /> </br></br> -->
+            <input id="submit log-in-validation" type="button" onclick ="openObjFajax('GET', window.location.href,[pName.value,password.value], 'log-in-validation',[showContentContacts,displayContacts])" value="submit" /> </br></br>
+
+            <label >dosent have an account? press <a id="show-register" onclick="showContentreg()"> <span id="span">here  </span> </a></label>
         </form>
 
     </div></template>
@@ -31,8 +33,10 @@
             <input type="text" id="pName" name="pName" maxlength="20" minlength="2" required ></br></br>
             <label for="password">password</label></br>
             <input type="password" id="password" name="password" required /></br></br>
-            <input type="submit" value="submit" onclick="insertRegisterValidation(pName.value,password.value)" /> </br></br>
-            <label> have an account? press<a onclick="showContentlog()"> here<span id="span">  </span> </a></label>
+            <!-- <input id="insert-register" type="submit" value="submit" onclick="insertRegisterValidation(pName.value,password.value)" /> </br></br> -->
+            <input id="insert-register" type="submit" value="submit" onclick="openObjFajax('POST', window.location.href,[pName.value,password.value], 'insert-register',[])" /> </br></br>
+
+            <label> have an account? press<a id="show-login" onclick="showContentlog()"> here<span id="span">  </span> </a></label>
         </form>
     </div></template>
 
@@ -58,14 +62,20 @@
         <input type="text" id="pName" name="pName" maxlength="20" minlength="2" required ></br></br>
         <label for="phone">phone</label></br>
         <input type="phone" id="phonetoadd" name="phonetoadd" required /></br></br>   
-        <input type="button" value="submit" onclick=" AddToContacts(pName.value,phonetoadd.value)" /> </br></br>
+        <!-- <input id="add-to-contacts" type="button" value="submit" onclick=" AddToContacts(pName.value,phonetoadd.value)" /> </br></br> -->
+        <input id="add-to-contacts" type="button" value="submit" onclick="openObjFajax('POST', window.location.href,[pName.value,phonetoadd.value], 'add-to-contacts',[showContentContacts,displayContacts])" /> </br></br>
+
     </form></div>
 </template>
 
 <script src="./script/data.js"></script>
-<script src="./script/index.js"></script>
+<script src="./script/Fajax.js"></script>
 <script src="./script/contacts.js"></script>
 <script src="./script/server.js"></script>
+<script src="./script/index.js"></script>
+
+
+
 
 </body>
 </html>
