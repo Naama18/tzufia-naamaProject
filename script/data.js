@@ -56,9 +56,10 @@ function AddToContacts() {
   let currentUser = localStorage.getItem("Current user");
   let getFromLocal = JSON.parse(localStorage.getItem(currentUser));
   console.log(getFromLocal.content);
-
+  if (phoneNumber.trim() === "" || nameToAdd.trim() === "") {
+    alert("Invalid content");
+  }
   if (valInarray(phoneNumber, Object.values(getFromLocal.content))) {
-    //|| valInarray(currentUser, Object.keys(getFromLocal.content))
     alert("You already have this contact");
   } else {
     getFromLocal.content[nameToAdd] = phoneNumber;
@@ -79,11 +80,11 @@ function displayContacts() {
   for (let i = 0; i < keys.length; i++) {
     const newRow = document.createElement("tr");
     const nameKey = document.createElement("td");
-    nameKey.textContent = keys[i]; // Example name
+    nameKey.textContent = keys[i]; //
     newRow.appendChild(nameKey);
 
     const phoneVal = document.createElement("td");
-    phoneVal.textContent = userContacts[keys[i]]; // Example age
+    phoneVal.textContent = userContacts[keys[i]]; //
     newRow.appendChild(phoneVal);
     tbl.appendChild(newRow);
   }

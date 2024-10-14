@@ -5,6 +5,7 @@ function showContentlog() {
   item = temp.content.querySelector("div");
   a = document.importNode(item, true);
   document.getElementById("shown").appendChild(a);
+  location.hash = "#logInPage";
 }
 
 function showContentreg() {
@@ -14,6 +15,7 @@ function showContentreg() {
   item = temp.content.querySelector("div");
   a = document.importNode(item, true);
   document.getElementById("shown").appendChild(a);
+  location.hash = "#signUpPage";
 }
 
 function showContentContacts() {
@@ -23,13 +25,15 @@ function showContentContacts() {
   item = temp.content.querySelector("div");
   a = document.importNode(item, true);
   document.getElementById("shown").appendChild(a);
+  location.hash = "#contacts";
 }
 
-//   function showContentAddContacts() {
-//     document.getElementById("shown").innerHTML=" ";
-//     let temp, item, a, i;
-//     temp = document.getElementsByTagName("template")[3];
-//     item = temp.content.querySelector("div");
-//     a = document.importNode(item, true);
-//     document.getElementById("shown").appendChild(a);
-//   }
+function showContactsFormAdd() {
+  document.getElementById("shown").innerHTML = " ";
+  let temp, item, a, i;
+  temp = document.getElementsByTagName("template")[3];
+  item = temp.content.querySelector("div");
+  a = document.importNode(item, true);
+  document.getElementById("shown").appendChild(a);
+  location.hash = "#addContact";
+}
