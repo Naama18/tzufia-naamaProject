@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./css/index.css" rel="stylesheet">
     <title>Document</title>
 </head>
 <body onload="showContentlog()">
@@ -10,34 +11,33 @@
     <div id="shown"></div>
 
     </div>
-    <template><div class="page" id="login" >
+    <template class="signLogIn"><div class="page" id="login" >
         <form id="form1" >
             <label id="title"> login: </label> </br></br>
             <label for="pName"> name :</label> </br>
             <input type="text" id="pName" name="pName" maxlength="20" minlength="2" required ></br></br>
             <label for="password">password:</label></br>
             <input type="password" id="password" name="password" required /></br></br>
-            <p id="notExist"> user not found</p>
-            <input id="submit" type="button" onclick ="logInValidation()" value="אישור" /> </br></br>
+            <input id="submit" type="button" onclick ="logInValidation()" value="submit" /> </br></br>
             <label >dosent have an account? press <a onclick="showContentreg()"> <span id="span">here  </span> </a></label>
         </form>
 
     </div></template>
 
-    <template><div class="page" id="registration" >
+    <template class="signLogIn" ><div class="page" id="registration" >
         <form id="form1">
             <label id="title"> sign up </label> </br></br>
             <label for="pName">name</label> </br>
             <input type="text" id="pName" name="pName" maxlength="20" minlength="2" required ></br></br>
             <label for="password">password</label></br>
             <input type="password" id="password" name="password" required /></br></br>
-            <p id="notExist"> user not found</p>
             <input type="submit" value="submit" onclick="insertRegisterValidation()" /> </br></br>
             <label> have an account? press<a onclick="showContentlog()"> here<span id="span">  </span> </a></label>
         </form>
     </div></template>
 
-    <template><div class="page" id="contacts" >
+    <template id="contact-table"><div class="page" id="contacts" >
+        <label id="title"> contacts: </label> </br></br>
          <table id="main-table">
             <tr>
                 <th>Name </th>
@@ -50,13 +50,15 @@
          <button id="add-contact" onclick="showContactsFormAdd()">add new contect</button>
     </div></template>
     
-<template>
-    <div><form>
+<template id="addForm">
+    <div>
+        <label id="title"> add contact: </label> </br></br>
+        <form>
         <label for="pName">name</label> </br>
         <input type="text" id="name" name="name" maxlength="20" minlength="2" required ></br></br>
         <label for="phone">phone</label></br>
         <input type="phone" id="phonetoadd" name="phonetoadd" required /></br></br>   
-        <input type="button" value="submit" onclick="AddToContacts()" /> </br></br>
+        <input type="button" value="submit" onclick=" AddToContacts()" /> </br></br>
     </form></div>
 </template>
 

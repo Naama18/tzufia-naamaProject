@@ -1,0 +1,77 @@
+body{
+    background-color: rgb(245, 210, 251);
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items:center;
+    padding-top: 200px;
+    font-size: 25px;
+    font-family:'Times New Roman', Times, serif;
+}
+
+a{
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+a:hover{
+    color: blueviolet;
+    font-size: larger;
+}
+
+a:active{
+    color: rgb(176, 122, 226);
+}
+
+a:visited{
+    color: blueviolet;
+}
+
+
+#title{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+table{
+    padding-bottom: 50px;
+    padding-top: 20px;
+}
+
+
+th, td {
+text-align: center;
+padding: 15px;
+background-color: hsla(298, 48%, 61%, 0.5);
+width: 60vw;
+border-radius: 10px;
+}
+
+th{
+    background-color: hsla(294, 22%, 64%, 0.5);
+}
+
+
+input[type="button"],
+input[type="submit"],
+#add-contact {
+    padding: 15px 20px; /* Increase padding for bigger buttons */
+    font-size: 16px; /* Increase font size */
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="button"]:hover,
+input[type="submit"]:hover,
+#add-contact:hover {
+    padding: 15px 20px; /* Increase padding for bigger buttons */
+    font-size: 16px; /* Increase font size */
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    background-color: rgb(214, 191, 218);
+    box-shadow: 5px 5px rgb(90, 7, 111), 10px 10px rgb(156, 93, 144), 15px 15px rgb(192, 171, 190);
+}
