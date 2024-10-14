@@ -1,15 +1,22 @@
-class Fajax{
-    constructor(){
-        this.openFajax(typeOfRequst,url,content)
-        {
-            //returns ["GET",url]/["POST",url] based on what the client does
-        },
-        this.sendFajax()
-        {},
-        this.onloadFajax(){} 
-        // when it gets the action from the client it starts the connection
-
-
-        
-    }
+class Fajax {
+  constructor() {
+    this._url;
+    this._content;
+    this._typeOfRequest;
+    this._ready = false;
+  }
+  openFajax(typeOfRequst, url, content) {
+    this._url = url;
+    this._content = content;
+    this._typeOfRequest = typeOfRequst;
+  }
+  sendFajax() {
+    this._ready = true;
+    return {
+      url: this._url,
+      typeOfRequest: this._typeOfRequest,
+      content: this._content,
+    };
+  }
+  onloadFajax() {}
 }
