@@ -14,11 +14,23 @@ function insertRegisterValidation(name, password) {
       content: {},
     };
     localStorage.setItem(name, JSON.stringify(userData));
+    return 200;
   } else {
     alert("userName already exist");
+    return 404;
   }
 }
+function usernameExist(name, password) {
+  const storedUserData = localStorage.getItem(name);
+  if (storedUserData) {
+    const userData = JSON.parse(storedUserData);
 
+    if (userData["password"] === password) {
+      return true;
+    }
+  }
+  return false;
+}
 function logInValidation(name, password) {
   const storedUserData = localStorage.getItem(name);
   if (storedUserData) {
@@ -27,12 +39,14 @@ function logInValidation(name, password) {
     if (userData["password"] === password) {
       alert("sign in succefully!");
       localStorage.setItem("Current user", name);
-      // showContentContacts();
-      // displayContacts();
+      return 200;
     } else {
       alert("name or password invalid");
+      return 404;
     }
   }
+  alert("name or password invalid");
+  return 404;
 }
 function valInarray(val, arr) {
   for (let i = 0; i < arr.length; i++) {
@@ -47,9 +61,11 @@ function AddToContacts(nameToAdd, phoneNumber) {
   console.log(getFromLocal.content);
   if (phoneNumber.trim() === "" || nameToAdd.trim() === "") {
     alert("Invalid content");
+    return 404;
   }
   if (valInarray(phoneNumber, Object.values(getFromLocal.content))) {
     alert("You already have this contact");
+    return 404;
   } else {
     getFromLocal.content[nameToAdd] = phoneNumber;
     console.log(getFromLocal.content);
@@ -57,24 +73,7 @@ function AddToContacts(nameToAdd, phoneNumber) {
     localStorage.setItem(currentUser, JSON.stringify(getFromLocal));
     showContentContacts();
     displayContacts();
+    return 200;
   }
+  return 404;
 }
-// function displayContacts() {
-//   let tbl = document.getElementById("main-table");
-//   let currentUser = localStorage.getItem("Current user");
-//   let getFromLocal = JSON.parse(localStorage.getItem(currentUser));
-//   let userContacts = getFromLocal.content;
-//   let keys = Object.keys(getFromLocal.content);
-
-//   for (let i = 0; i < keys.length; i++) {
-//     const newRow = document.createElement("tr");
-//     const nameKey = document.createElement("td");
-//     nameKey.textContent = keys[i]; //
-//     newRow.appendChild(nameKey);
-
-//     const phoneVal = document.createElement("td");
-//     phoneVal.textContent = userContacts[keys[i]]; //
-//     newRow.appendChild(phoneVal);
-//     tbl.appendChild(newRow);
-//   }
-// }

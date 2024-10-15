@@ -3,10 +3,9 @@ class Fajax {
     this._url;
     this._content;
     this._typeOfRequest;
-    this._ready = false;
     this._idAction = "";
     this._onload;
-    this._response = 200;
+    this._response = undefined;
   }
   openFajax(typeOfRequst, url, content, idAction) {
     this._url = url;
@@ -15,15 +14,10 @@ class Fajax {
     this._idAction = idAction;
   }
   sendFajax() {
-    this._ready = true;
-    myServer(
-      JSON.stringify({
-        url: this._url,
-        typeOfRequest: this._typeOfRequest,
-        content: this._content,
-        idAction: this._idAction,
-        response: this._response,
-      })
-    );
+    myServer(this);
+  }
+
+  getResponse() {
+    return this._response;
   }
 }

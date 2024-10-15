@@ -58,15 +58,18 @@ function displayContacts() {
 }
 function openObjFajax(typeOfRequst, url, content, idAction, functions = []) {
   const fajaxttp = new Fajax();
+  console.log("Im creating Fajax");
 
   fajaxttp.openFajax(typeOfRequst, url, content, idAction);
   fajaxttp.sendFajax();
-  setTimeout(
-    (fajaxttp._onload = (function () {
-      for (let i = 0; i < functions.length; i++) {
-        functions[i]();
-      }
-    })()),
-    1000
-  );
+  if (fajaxttp.getResponse() === 200) {
+    setTimeout(
+      (fajaxttp._onload = (function () {
+        for (let i = 0; i < functions.length; i++) {
+          functions[i]();
+        }
+      })()),
+      1000
+    );
+  }
 }
